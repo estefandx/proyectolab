@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Django default" uuid="efb48c00-e506-47d6-9f86-0e21227859be">
+      <user-name>root</user-name>
+      <schema-pattern>laboratorio.*</schema-pattern>
+      <default-schemas>laboratorio.*</default-schemas>
+    </data-source>
+    <data-source name="MySQL - laboratorio@localhost" uuid="0d62793d-48a0-4abf-b2d3-b820a6d036d3">
+      <secret-storage>memory</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>laboratorio.*</schema-pattern>
+      <default-schemas>laboratorio.*</default-schemas>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> proyecto agroti | {% block title %} Inicio {% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="styleheet" href="{{ STATIC_URL }}css/style.css">
+</head>
+<body>
+<div id="header">
+<h1>Agrotic Proyecto UTP</h1>
+</div>
+
+
+<div class="menudes", id="container">
+
+<a href="{% url "login" %}">Inicio</a>
+<a href="/acciones/">registrar usuario</a>
+<a href="">recuperar Contraseña</a>
+<a href="/cerrar/">Cerrar Sesion</a>
+<a href="">Creditos</a>
+<div class="marca"></div>
+</div>
+ {% block conteiner %}{% endblock %}
+</body>

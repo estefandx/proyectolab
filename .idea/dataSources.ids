@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Django default" uuid="efb48c00-e506-47d6-9f86-0e21227859be">
+    <database-info product="MySQL" version="5.6.25" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="laboratorio"/>
+    <table name="auth_group" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_group_permissions_group_id_58c48ba9_fk_auth_group_id" table="auth_group_permissions" schema="" catalog="laboratorio" columns="group_id"/>
+      <exported-key name="auth_user_groups_group_id_30a071c9_fk_auth_group_id" table="auth_user_groups" schema="" catalog="laboratorio" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_group_permissions_group_id_58c48ba9_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_permissi_content_type_id_51277a81_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id" table="auth_group_permissions" schema="" catalog="laboratorio" columns="permission_id"/>
+      <exported-key name="auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id" table="auth_user_user_permissions" schema="" catalog="laboratorio" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+    </table>
+    <table name="auth_user" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="is_superuser" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="254" scale="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="date_joined" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_user_groups_user_id_24702650_fk_auth_user_id" table="auth_user_groups" schema="" catalog="laboratorio" columns="user_id"/>
+      <exported-key name="auth_user_user_permissions_user_id_7cd7acb6_fk_auth_user_id" table="auth_user_user_permissions" schema="" catalog="laboratorio" columns="user_id"/>
+      <exported-key name="django_admin_log_user_id_1c5f563_fk_auth_user_id" table="django_admin_log" schema="" catalog="laboratorio" columns="user_id"/>
+      <exported-key name="proyecto_usuario_user_ptr_id_606ca514_fk_auth_user_id" table="proyecto_usuario" schema="" catalog="laboratorio" columns="user_ptr_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_groups_group_id_30a071c9_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_groups_user_id_24702650_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_group_id_30a071c9_fk_auth_group_id" unique="false" columns="group_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_user_permissions_user_id_7cd7acb6_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="object_id" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="django_admin__content_type_id_5151027a_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="django_admin_log_user_id_1c5f563_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin__content_type_id_5151027a_fk_django_content_type_id" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_user_id_1c5f563_fk_auth_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app_label" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_permissi_content_type_id_51277a81_fk_django_content_type_id" table="auth_permission" schema="" catalog="laboratorio" columns="content_type_id"/>
+      <exported-key name="django_admin__content_type_id_5151027a_fk_django_content_type_id" table="django_admin_log" schema="" catalog="laboratorio" columns="content_type_id"/>
+      <index name="django_content_type_app_label_3ec8c61c_uniq" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="django_session" schema="" catalog="laboratorio" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_de54fa62" unique="false" columns="expire_date"/>
+    </table>
+    <table name="proyecto_cultivo" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tamano" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nombre" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dimension" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ubicacion" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="numero_lotes" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="dueno_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="jefe_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_cultivo_dueno_id_53f6c5a4_fk_proyecto_dueno_id" columns="dueno_id" ref-table="proyecto_dueno" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_cultivo_jefe_id_1138970e_fk_proyecto_jefe_id" columns="jefe_id" ref-table="proyecto_jefe" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_lote_cultivo_id_47a062b2_fk_proyecto_cultivo_id" table="proyecto_lote" schema="" catalog="laboratorio" columns="cultivo_id"/>
+      <index name="proyecto_cultivo_a8aeee44" unique="false" columns="dueno_id"/>
+    </table>
+    <table name="proyecto_dueno" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="documento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_d_documento_id_4758df50_fk_proyecto_usuario_user_ptr_id" columns="documento_id" ref-table="proyecto_usuario" ref-schema="" ref-catalog="laboratorio" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_cultivo_dueno_id_53f6c5a4_fk_proyecto_dueno_id" table="proyecto_cultivo" schema="" catalog="laboratorio" columns="dueno_id"/>
+      <exported-key name="proyecto_jefe_dueno_id_373b3c7f_fk_proyecto_dueno_id" table="proyecto_jefe" schema="" catalog="laboratorio" columns="dueno_id"/>
+    </table>
+    <table name="proyecto_jefe" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="documento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dueno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_je_documento_id_17b0ec8_fk_proyecto_usuario_user_ptr_id" columns="documento_id" ref-table="proyecto_usuario" ref-schema="" ref-catalog="laboratorio" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_jefe_dueno_id_373b3c7f_fk_proyecto_dueno_id" columns="dueno_id" ref-table="proyecto_dueno" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_cultivo_jefe_id_1138970e_fk_proyecto_jefe_id" table="proyecto_cultivo" schema="" catalog="laboratorio" columns="jefe_id"/>
+      <exported-key name="proyecto_trabajador_jefe_id_64344c57_fk_proyecto_jefe_id" table="proyecto_trabajador" schema="" catalog="laboratorio" columns="jefe_id"/>
+      <index name="proyecto_jefe_a8aeee44" unique="false" columns="dueno_id"/>
+    </table>
+    <table name="proyecto_lote" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cultivo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="trabajador_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_lote_cultivo_id_47a062b2_fk_proyecto_cultivo_id" columns="cultivo_id" ref-table="proyecto_cultivo" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_lote_trabajador_id_4ba3d93_fk_proyecto_trabajador_id" columns="trabajador_id" ref-table="proyecto_trabajador" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="proyecto_lote_12b1cd18" unique="false" columns="trabajador_id"/>
+      <index name="proyecto_lote_cultivo_id_47a062b2_fk_proyecto_cultivo_id" unique="false" columns="cultivo_id"/>
+    </table>
+    <table name="proyecto_trabajador" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="documento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="jefe_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_t_documento_id_7ab103e8_fk_proyecto_usuario_user_ptr_id" columns="documento_id" ref-table="proyecto_usuario" ref-schema="" ref-catalog="laboratorio" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_trabajador_jefe_id_64344c57_fk_proyecto_jefe_id" columns="jefe_id" ref-table="proyecto_jefe" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_lote_trabajador_id_4ba3d93_fk_proyecto_trabajador_id" table="proyecto_lote" schema="" catalog="laboratorio" columns="trabajador_id"/>
+      <index name="proyecto_trabajador_bac5e582" unique="false" columns="jefe_id"/>
+    </table>
+    <table name="proyecto_usuario" schema="" catalog="laboratorio" type="TABLE">
+      <column name="user_ptr_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="genero" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tipoDocumento" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="numero_Documento" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_nacimiento" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="direccion" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo_usuario" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_ptr_id"/>
+      <foreign-key name="proyecto_usuario_user_ptr_id_606ca514_fk_auth_user_id" columns="user_ptr_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_d_documento_id_4758df50_fk_proyecto_usuario_user_ptr_id" table="proyecto_dueno" schema="" catalog="laboratorio" columns="documento_id"/>
+      <exported-key name="proyecto_je_documento_id_17b0ec8_fk_proyecto_usuario_user_ptr_id" table="proyecto_jefe" schema="" catalog="laboratorio" columns="documento_id"/>
+      <exported-key name="proyecto_t_documento_id_7ab103e8_fk_proyecto_usuario_user_ptr_id" table="proyecto_trabajador" schema="" catalog="laboratorio" columns="documento_id"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - laboratorio@localhost" uuid="0d62793d-48a0-4abf-b2d3-b820a6d036d3">
+    <database-info product="MySQL" version="5.6.25" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="laboratorio"/>
+    <table name="auth_group" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_group_permissions_group_id_58c48ba9_fk_auth_group_id" table="auth_group_permissions" schema="" catalog="laboratorio" columns="group_id"/>
+      <exported-key name="auth_user_groups_group_id_30a071c9_fk_auth_group_id" table="auth_user_groups" schema="" catalog="laboratorio" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_group_permissions_group_id_58c48ba9_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_permissi_content_type_id_51277a81_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id" table="auth_group_permissions" schema="" catalog="laboratorio" columns="permission_id"/>
+      <exported-key name="auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id" table="auth_user_user_permissions" schema="" catalog="laboratorio" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+    </table>
+    <table name="auth_user" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="is_superuser" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="254" scale="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="date_joined" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_user_groups_user_id_24702650_fk_auth_user_id" table="auth_user_groups" schema="" catalog="laboratorio" columns="user_id"/>
+      <exported-key name="auth_user_user_permissions_user_id_7cd7acb6_fk_auth_user_id" table="auth_user_user_permissions" schema="" catalog="laboratorio" columns="user_id"/>
+      <exported-key name="django_admin_log_user_id_1c5f563_fk_auth_user_id" table="django_admin_log" schema="" catalog="laboratorio" columns="user_id"/>
+      <exported-key name="proyecto_usuario_user_ptr_id_606ca514_fk_auth_user_id" table="proyecto_usuario" schema="" catalog="laboratorio" columns="user_ptr_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_groups_group_id_30a071c9_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_groups_user_id_24702650_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_group_id_30a071c9_fk_auth_group_id" unique="false" columns="group_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_user_permissions_user_id_7cd7acb6_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="object_id" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="django_admin__content_type_id_5151027a_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="django_admin_log_user_id_1c5f563_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin__content_type_id_5151027a_fk_django_content_type_id" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_user_id_1c5f563_fk_auth_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app_label" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_permissi_content_type_id_51277a81_fk_django_content_type_id" table="auth_permission" schema="" catalog="laboratorio" columns="content_type_id"/>
+      <exported-key name="django_admin__content_type_id_5151027a_fk_django_content_type_id" table="django_admin_log" schema="" catalog="laboratorio" columns="content_type_id"/>
+      <index name="django_content_type_app_label_3ec8c61c_uniq" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="django_session" schema="" catalog="laboratorio" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_de54fa62" unique="false" columns="expire_date"/>
+    </table>
+    <table name="proyecto_cultivo" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tamano" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nombre" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dimension" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ubicacion" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="numero_lotes" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="dueno_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="jefe_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_cultivo_dueno_id_53f6c5a4_fk_proyecto_dueno_id" columns="dueno_id" ref-table="proyecto_dueno" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_cultivo_jefe_id_1138970e_fk_proyecto_jefe_id" columns="jefe_id" ref-table="proyecto_jefe" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_lote_cultivo_id_47a062b2_fk_proyecto_cultivo_id" table="proyecto_lote" schema="" catalog="laboratorio" columns="cultivo_id"/>
+      <index name="proyecto_cultivo_a8aeee44" unique="false" columns="dueno_id"/>
+    </table>
+    <table name="proyecto_dueno" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="documento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_d_documento_id_4758df50_fk_proyecto_usuario_user_ptr_id" columns="documento_id" ref-table="proyecto_usuario" ref-schema="" ref-catalog="laboratorio" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_cultivo_dueno_id_53f6c5a4_fk_proyecto_dueno_id" table="proyecto_cultivo" schema="" catalog="laboratorio" columns="dueno_id"/>
+      <exported-key name="proyecto_jefe_dueno_id_373b3c7f_fk_proyecto_dueno_id" table="proyecto_jefe" schema="" catalog="laboratorio" columns="dueno_id"/>
+    </table>
+    <table name="proyecto_jefe" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="documento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dueno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_je_documento_id_17b0ec8_fk_proyecto_usuario_user_ptr_id" columns="documento_id" ref-table="proyecto_usuario" ref-schema="" ref-catalog="laboratorio" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_jefe_dueno_id_373b3c7f_fk_proyecto_dueno_id" columns="dueno_id" ref-table="proyecto_dueno" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_cultivo_jefe_id_1138970e_fk_proyecto_jefe_id" table="proyecto_cultivo" schema="" catalog="laboratorio" columns="jefe_id"/>
+      <exported-key name="proyecto_trabajador_jefe_id_64344c57_fk_proyecto_jefe_id" table="proyecto_trabajador" schema="" catalog="laboratorio" columns="jefe_id"/>
+      <index name="proyecto_jefe_a8aeee44" unique="false" columns="dueno_id"/>
+    </table>
+    <table name="proyecto_lote" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cultivo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="trabajador_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_lote_cultivo_id_47a062b2_fk_proyecto_cultivo_id" columns="cultivo_id" ref-table="proyecto_cultivo" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_lote_trabajador_id_4ba3d93_fk_proyecto_trabajador_id" columns="trabajador_id" ref-table="proyecto_trabajador" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="proyecto_lote_12b1cd18" unique="false" columns="trabajador_id"/>
+      <index name="proyecto_lote_cultivo_id_47a062b2_fk_proyecto_cultivo_id" unique="false" columns="cultivo_id"/>
+    </table>
+    <table name="proyecto_trabajador" schema="" catalog="laboratorio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="documento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="jefe_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyecto_t_documento_id_7ab103e8_fk_proyecto_usuario_user_ptr_id" columns="documento_id" ref-table="proyecto_usuario" ref-schema="" ref-catalog="laboratorio" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="proyecto_trabajador_jefe_id_64344c57_fk_proyecto_jefe_id" columns="jefe_id" ref-table="proyecto_jefe" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_lote_trabajador_id_4ba3d93_fk_proyecto_trabajador_id" table="proyecto_lote" schema="" catalog="laboratorio" columns="trabajador_id"/>
+      <index name="proyecto_trabajador_bac5e582" unique="false" columns="jefe_id"/>
+    </table>
+    <table name="proyecto_usuario" schema="" catalog="laboratorio" type="TABLE">
+      <column name="user_ptr_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="genero" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tipoDocumento" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="numero_Documento" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_nacimiento" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="direccion" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo_usuario" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_ptr_id"/>
+      <foreign-key name="proyecto_usuario_user_ptr_id_606ca514_fk_auth_user_id" columns="user_ptr_id" ref-table="auth_user" ref-schema="" ref-catalog="laboratorio" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="proyecto_d_documento_id_4758df50_fk_proyecto_usuario_user_ptr_id" table="proyecto_dueno" schema="" catalog="laboratorio" columns="documento_id"/>
+      <exported-key name="proyecto_je_documento_id_17b0ec8_fk_proyecto_usuario_user_ptr_id" table="proyecto_jefe" schema="" catalog="laboratorio" columns="documento_id"/>
+      <exported-key name="proyecto_t_documento_id_7ab103e8_fk_proyecto_usuario_user_ptr_id" table="proyecto_trabajador" schema="" catalog="laboratorio" columns="documento_id"/>
+    </table>
+  </data-source>
+</component>

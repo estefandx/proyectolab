@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}  inicio {% endblock %}
+
+{% block conteiner %}
+<br><br>
+
+
+{{ persona.tipo_usuario}}
+    <div class="menudes", >
+
+    {% if persona.tipo_usuario == "dueno" %}
+<a href="/registro/perfil/">registrar Jefe</a>
+<a href="">editar jefe</a>
+<a href="">eliminar jefe</a>
+<a href="">Ver Cultivos</a>
+        <a href="">eliminar jefe</a>
+<div class="marca"></div>
+
+    {% elif persona.tipo_usuario == "jefe" %}
+
+
+        <a href="/registro/perfil/">registrar trabajador</a>
+        <a href="">editar trabajador</a>
+        <a href="">eliminar trabajador</a>
+        <a href="">editar mi perfil</a>
+        <div class="marca"></div>
+
+        {% elif persona.tipo_usuario == "trabajador" %}
+
+        <a href="">registrar variable de lote</a>
+        <a href="">editar mi perfil </a>
+        <div class="marca"></div>
+
+        {% elif request.user.is_superuser  %}
+
+        <a href="/registro/perfil/">registrar dueno</a>
+        <a href="/registro/editar/">editar jefe</a>
+        <a href="">eliminar jefe</a>
+        <a href="">editar perfil</a>
+        <div class="marca"></div>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+
+
+
+
+{# {% if user.is_authenticated %}#}
+
+{#     {{ persona.tipo_usuario }}#}
+
+
+{#<div id="menu">#}
+{# <ul>#}
+{#  <li><a href="..." title="...">Home</a></li>#}
+{#  <li><a href="..." title="...">Archivos</a></li>#}
+{#  <li><a href="..." title="...">Enlaces</a></li>#}
+{#  <li><a href="..." title="...">Acerca de</a></li>#}
+{# </ul>#}
+{#</div>#}
+{#{% else %}#}
+{#    <h1>para ver las acciones inicie sesion primero</h1>#}
+{#{% endif %}#}
+
+
+
+
+

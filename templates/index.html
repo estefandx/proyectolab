@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}  inicio {% endblock %}
+{% load staticfiles %}
+<link rel="styleheet" href="{{ STATIC_URL }}css/style.css">
+
+{% block conteiner %}
+
+<br>
+
+<form method="post" >{% csrf_token %}
+
+
+
+    {% if user.is_authenticated %}
+    Bienvenido {{ user.username }}
+
+    {% else %}
+    <input type="text" name="username" placeholder="usuario"> <br>
+    <input type="password" name="password" placeholder="contraseña"> <br>
+
+
+   <input type="submit" name="login" class="login login-submit" value="login">
+  </form>
+    {% endif %}
+
+
+
+{% endblock %}
+

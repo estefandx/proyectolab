@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}  registro {% endblock %}
+
+
+{% block conteiner %}
+
+    <form method="POST"> {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" name="registrar"  value="registrar">
+
+{% endblock %}
+
+
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title></title>#}
+{#</head>#}
+{#<body>#}
+{#<form method="POST"> {% csrf_token %}#}
+{#     <input type="text"  name="first_name" placeholder="nombre"> <br>#}
+{#    <input type="text" name="last_name" placeholder="apellidos"> <br>#}
+{#    <input type="text" name="email" placeholder="email"> <br>#}
+{#    <input type="text" name="genero" placeholder="genero"> <br>#}
+{#    <input type="password" name="password" placeholder="password"> <br>#}
+{#    <input type="text" name="tipoDocumento" placeholder="tipodocumento"> <br>#}
+{#    <input type="text" name="numero_documento" placeholder="documento"> <br>#}
+{#    <input type="text" name="fecha_nacimiento" placeholder="fecha nacimiento"> <br>#}
+{#    <input type="text" name="direccion" placeholder="direccion"> <br>#}
+{#    <input type="text" name="telefono" placeholder="relegono"> <br>#}
+{#    {{ form.as_p }}#}
+{##}
+{#    <input type="submit" name="registrar"  value="registrar">#}
+{##}
+{##}
+{#</form>#}
+{##}
+{#</body>#}
+{#</html>#}
